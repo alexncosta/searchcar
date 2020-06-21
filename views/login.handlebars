@@ -1,0 +1,22 @@
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div id="dLogin">
+    <form action="/login" method="POST" class="form-signin">
+        <img id="imgLogo" class="mb-4" src="logosearchcar.jpg" alt="" width="160" height="120">
+        <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+        <br/>
+        {{#if error}}
+            <div class="alert alert-danger">{{error}}</div>
+        {{/if}}
+        <input type="email" id="login" name="login" class="form-control" placeholder="E-mail" required autofocus>
+        <br/>
+        <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha" required>
+        <br/>
+        <button class="btn btn-lg btn-success btn-block" type="submit">Acessar</button>
+        <footer class="text-muted text-center mt-4">Todos os Direitos Reservados &copy; 2020</footer>
+    </form>
+</div>

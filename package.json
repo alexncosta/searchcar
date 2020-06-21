@@ -1,0 +1,28 @@
+{
+  "name": "searchcar",
+  "version": "1.0.0",
+  "description": "Projeto de final de curso de gradução TADS Faculdade Pitágoras",
+  "main": "index.js",
+  "author": "Alexandre Nascimento",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4",
+    "express-session": "^1.17.1",
+    "handlebars": "^4.7.6",
+    "mysql2": "^1.5.2",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "sequelize": "^5.21.11"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "sequelize-cli": "^5.5.1"
+  }
+}

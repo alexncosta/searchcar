@@ -1,0 +1,158 @@
+<br/>
+<br/>
+<br/>
+<br/>
+<h2 class="mt-8">Cadastro de Veículos</h2>
+<div class="card mt-4">
+    <div class="card-body">
+        <br/>
+        <form action="/veiculos" method="post">
+            <select class="custom-select my-1 mr-sm-2 mt-2" id="idMarca" name="idMarca">
+                <option value="1">Marca</option>
+                <option value="2">Jeep</option>                
+                <option value="3">Mitsubish</option>
+                <option value="4">Honda</option>
+            </select>
+            <select class="custom-select my-1 mr-sm-2 mt-2" id="idModelo" name="idModelo">
+                <option value="1">Modelo</option>
+                <option value="2">Compass Sport</option>
+                <option value="3">Compass Longitude</option>
+                <option value="4">Compass Limited</option>
+            </select>
+            <input type="text" name="ano" placeholder="Ano" class="form-control mt-2"/>
+            <input type="text" name="cor" placeholder="Cor" class="form-control mt-2"/>
+            <input type="text" name="motor" placeholder="Motor" class="form-control mt-2"/>
+            <select class="custom-select my-1 mr-sm-2 mt-3" id="combustivel" name="combustivel">
+                <option value="1">Combústivel</option>
+                <option value="2">Flex</option>
+                <option value="3">Gasolina</option>
+                <option value="4">Alcool</option>
+                <option value="5">Diesel</option>
+            </select>
+            <select class="custom-select my-1 mr-sm-2 mt-2" id="idCidade" name="idCidade">
+                <option value="1">Cidade</option>
+                <option value="2">Belo Horizonte</option>
+                <option value="3">Serra</option>
+                <option value="4">Rio de Janeiro</option>
+                <option value="5">Rio Branco</option>
+            </select>
+            <input type="text" name="kilometragem" placeholder="Kilometragem" class="form-control mt-2"/>
+            <select class="custom-select my-1 mr-sm-2 mt-3" id="tipo" name="tipo">
+                <option value="1">Tipo</option>
+                <option value="2">Flex</option>
+                <option value="3">Gasolina</option>
+                <option value="4">Alcool</option>
+                <option value="5">Diesel</option>
+            </select>
+            <select class="custom-select my-1 mr-sm-2 mt-2" id="tipo" name="tipo">
+                <option value="1">Tipo</option>                
+                <option value="1">Novo</option>
+                <option value="1">Seminovo</option>
+            </select>
+            <br/>
+            <br/>
+            <button type="submit" class="btn btn-success">Cadastrar</button>
+        </form>
+    </div>
+</div>
+<div class="card mt-3">
+    <div class="card-body">
+        <table id="tbVeiculos" class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Modelo</th>
+                <th scope="col">Ano</th>
+                <th scope="col">Cor</th>
+                <th scope="col">Motor</th>
+                <th scope="col">Combústivel</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">Kilometragem</th>
+                <th scope="col">Tipo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <th scope="row">1</th>
+                <td>Jeep</td>
+                <td>Compass Longitude</td>
+                <td>2019</td>
+                <td>Branca</td>
+                <td>2.0 THP</td>
+                <td>Flex</td>
+                <td>Belo Horizonte</td>
+                <td>12200</td>
+                <td>Seminovo</td>
+            </tr>
+            <tr>
+            <th scope="row">2</th>
+                <td>Jeep</td>
+                <td>Compass Longitude</td>
+                <td>2019</td>
+                <td>Branca</td>
+                <td>2.0 THP</td>
+                <td>Flex</td>
+                <td>Belo Horizonte</td>
+                <td>12200</td>
+                <td>Seminovo</td>
+            </tr>
+            <tr>
+            <th scope="row">3</th>
+                <td>Jaguar</td>
+                <td>F-Pace</td>
+                <td>2019</td>
+                <td>Preta</td>
+                <td>2.0 THP</td>
+                <td>Flex</td>
+                <td>Belo Horizonte</td>
+                <td>11000</td>
+                <td>Seminovo</td>
+            </tr>
+            <tr>
+            <th scope="row">4</th>
+                <td>Hyundai</td>
+                <td>Santa Fé</td>
+                <td>2018</td>
+                <td>Prata</td>
+                <td>3.5 V6</td>
+                <td>Flex</td>
+                <td>Belo Horizonte</td>
+                <td>22500</td>
+                <td>Seminovo</td>
+            </tr>
+            <tr>
+            <th scope="row">5</th>
+                <td>Honda</td>
+                <td>Civic Turin</td>
+                <td>2019</td>
+                <td>Preta</td>
+                <td>2.0 Flex</td>
+                <td>Flex</td>
+                <td>Belo Horizonte</td>
+                <td>18900</td>
+                <td>Seminovo</td>
+            </tr>
+        </tbody>
+        </table>
+        <br/>
+        <a href="/admin"><button type="button" class="btn btn-secondary">Voltar</button></a>
+    </div>
+</div>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <script>
+        $(document).ready( function () {
+            $('#tbVeiculos').DataTable( {
+                "language": {
+                    "lengthMenu": "Mostrando _MENU_ registros por página",
+                    "zeroRecords": "Nenhum registro encontrado",
+                    "info": "Mostrando página _PAGE_ de _PAGES_",
+                    "infoEmpty": "No records available",
+                    "infoFiltered": "(Filtrado de _MAX_ registros no total)"
+                }
+            } );
+        });
+    </script>

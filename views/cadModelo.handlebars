@@ -1,0 +1,72 @@
+<br/>
+<br/>
+<br/>
+<br/>
+{{>_msg}}
+<h2 class="mt-8">Cadastro de Modelos</h2>
+<div class="card">
+    <div class="card-body">
+        <br/>
+        <form action="/app/modelos" method="post">
+            <select class="custom-select my-1 mr-sm-2" id="idMarca" name="idMarca">
+                <script>
+                    $(document).ready(function(){
+                        $.ajax({
+                            url: "/app/marcas",
+                            type: 'GET',
+                            contentType: 'application/json',
+                            success: function(dataset) {
+                                console.log(JSON.stringify(dataset));
+                                var selectMarcas = $("#idMarca");
+                                selectMarcas.find("option").remove();
+                                $.each(dataset, function(chave, valor) {
+                                    $('<option>').val(valor.id).text(valor.nome).appendTo(selectMarcas);
+                                })
+                            }
+                        });
+                    });                    
+                </script>
+            </select><br/>
+            <input type="text" name="nome" placeholder="Modelo" class="form-control mt-2"/>
+            <br/>
+            <button type="submit" class="btn btn-success">Cadastrar</button>
+        </form>
+    </div>
+</div>
+<div class="card mt-3">
+    <div class="card-body">
+        <table id="tbModelos" class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Modelo</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        </table>
+        <br/>
+        <a href="/admin"><button type="button" class="btn btn-secondary">Voltar</button></a>
+    </div>
+</div>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <script>
+            $.ajax({
+                url: "/app/modelos",
+                type: 'GET',
+                contentType: 'application/json',
+                success: function(dataset) {
+                    console.log(JSON.stringify(dataset));
+                    $('#tbModelos').DataTable({
+                        data: dataset,
+                        "columns": [    
+                            { "data": "id" },
+                            { "data": "nome" }
+                        ]
+                    });
+                }
+            });
+    </script>

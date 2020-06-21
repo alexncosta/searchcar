@@ -1,0 +1,63 @@
+#dlogo {
+    margin-left: 34%;
+    left: -150px;
+}
+
+button#btPesquisa {
+    position: absolute;
+    top: -1px;
+    right: 0px;
+}
+
+#dPesquisa {
+    margin-left: 10%;
+}
+#dLogin {
+    width: 350px;
+    height: 280px;
+    margin-left: 28%;
+}
+
+img#imgLogo {
+    margin-left: 26%;
+}
+img#imgUsuario {
+    padding: 10px;
+    width: 160px;
+    height: 170px;
+}
+img#imgMarca {
+    padding: 20px;    
+    width: 140px;
+    height: 140px;
+}
+img#imgModelo {
+    padding: 10px;    
+    width: 160px;
+    height: 140px;
+}
+img#imgVeiculo {
+    padding: 10px;    
+    width: 180px;
+    height: 140px;
+}
+img#imgRevendedor {
+    padding: 10px;
+    width: 140px;
+    height: 160px;
+}
+img#imgEstado {
+    padding: 10px;
+    width: 140px;
+    height: 160px;
+}
+img#imgCidade {
+    padding: 10px;
+    width: 220px;
+    height: 120px;
+}
+
+input#txtPesquisa {
+    height: 44px;
+}
+
