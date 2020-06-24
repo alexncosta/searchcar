@@ -59,6 +59,7 @@ appServer.get("/login", (req, res) => {
     res.render("login");
 });
 appServer.post("/login", (req, res, next) =>{
+    console.log("Passou aqui - Post route");
     passport.authenticate("local",
         { 
             successRedirect: "/admin", 

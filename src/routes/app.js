@@ -180,6 +180,77 @@ routes.post("/revendedores",  (req, res) => {
 });
 
 routes.get("/veiculos", VeiculoController.listaVeiculos);
-routes.post("/veiculos", VeiculoController.addVeiculo);
+routes.post("/veiculos", (req, res) => { 
+
+    var errors = [];
+    console.log("Passou aqui");
+    console.log(req.body.idMarca);
+
+    if (!req.body.idMarca || typeof req.body.idMarca == undefined || req.body.idMarca == null || req.body.idMarca == "Marca") {
+        console.log("Passou aqui - Erro Marca");
+        errors.push({ texto: "Campo Marca tem preenchimento obrigatório. Por favor, selecione um Modelo"});
+    }
+
+    if (!req.body.idModelo || typeof req.body.idModelo == undefined || req.body.idModelo == null || req.body.idModelo == "Modelo") {
+        console.log("Passou aqui - Erro Modelo");
+        errors.push({ texto: "Campo Modelo tem preenchimento obrigatório. Por favor, selecione um Modelo"});
+    }
+
+    if (!req.body.ano || typeof req.body.ano == undefined || req.body.ano == null) {
+        console.log("Passou aqui - Erro Ano");
+        errors.push({ texto: "Campo Ano tem preenchimento obrigatório"});
+    }
+
+    if (!req.body.cor || typeof req.body.cor == undefined || req.body.cor == null) {
+        console.log("Passou aqui - Erro Cor");
+        errors.push({ texto: "Campo Cor tem preenchimento obrigatório"});
+    }
+
+    if (!req.body.motor || typeof req.body.motor == undefined || req.body.motor == null) {
+        console.log("Passou aqui - Erro Motor");
+        errors.push({ texto: "Campo Motor tem preenchimento obrigatório"});
+    }
+
+    if (!req.body.combustivel   || typeof req.body.combustivel == undefined || req.body.combustivel == null || req.body.combustivel == "Combustível") {
+        console.log("Passou aqui - Erro Combustivel");
+        errors.push({ texto: "Campo Combustível tem preenchimento obrigatório. Por favor, selecione um Combustível"});
+    }
+
+    if (!req.body.idCidade   || typeof req.body.idCidade == undefined || req.body.idCidade == null || req.body.idCidade == "Cidade") {
+        console.log("Passou aqui - Erro Cidade");
+        errors.push({ texto: "Campo Cidade tem preenchimento obrigatório. Por favor, selecione uma cidade"});
+    }
+
+    if (!req.body.idEstado || typeof req.body.idEstado == undefined || req.body.idEstado == null || req.body.idEstado == "Estado") {
+        console.log("Passou aqui - Erro Marca");
+        errors.push({ texto: "Campo Estado tem preenchimento obrigatório. Por favor, selecione um Estado"});
+    }
+
+    if (!req.body.kilometragem || typeof req.body.kilometragem == undefined || req.body.kilometragem == null) {
+        console.log("Passou aqui - Erro Kilometragem");
+        errors.push({ texto: "Campo kilometragem tem preenchimento obrigatório"});
+    }
+
+    if (!req.body.tipo || typeof req.body.tipo == undefined || req.body.tipo == null || req.body.tipo == "Tipo") {
+        console.log("Passou aqui - Erro Tipo");
+        errors.push({ texto: "Campo Tipo tem preenchimento obrigatório. Por favor, selecione um Tipo"});
+    }
+
+    console.log("Passou aqui Validação Cadastro")
+    if (errors.length > 0) {
+        console.log("Passou aqui Erros");
+        req.flash("error_msg", "Erro ao cadastrar Veículo");
+        res.redirect("/searchcar/veiculos/add");
+    } else {
+        console.log("Pasou aqui addVeiculo")
+        VeiculoController.addVeiculo(req, res).then(() => {
+            req.flash("success_msg", "Veículo cadastrado com Sucesso");
+            res.redirect("/searchcar/veiculos/add");
+        }).catch(() => {
+            errors.push({ texto: "Erro ao cadastrar Veículo" });
+            req.flash("error_msg", errors);
+        });
+    }
+});
 
 module.exports = routes;

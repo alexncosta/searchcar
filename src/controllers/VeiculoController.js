@@ -2,9 +2,10 @@ const Veiculo = require("../models/Veiculo");
 
 module.exports = {
     async addVeiculo(req, res) {
-        const { idMarca, idModelo, ano, cor, motor, combustivel, idCidade, idEstado, kilometragem, tipo } = req.body;
-        const veiculo = await Veiculo.create({ idMarca, idModelo, ano, cor, motor, combustivel, idCidade, idEstado, kilometragem, tipo });
-        return res.json(veiculo);
+        const { idMarca, idModelo, ano, cor, motor, combustivel, idEstado, idCidade, kilometragem, tipo } = req.body;
+        console.log("Passou aqui Create");
+        Veiculo.create({ idMarca, idModelo, ano, cor, motor, combustivel, idEstado, idCidade, kilometragem, tipo });
+        console.log("Passou aqui depois do Create");
     },
 
     async listaVeiculos(req, res) {

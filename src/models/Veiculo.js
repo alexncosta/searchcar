@@ -9,8 +9,8 @@ class Veiculo extends Model {
             cor: DataTypes.STRING,
             motor: DataTypes.STRING,
             combustivel: DataTypes.STRING,
-            idCidade: DataTypes.INTEGER,
             idEstado: DataTypes.INTEGER,
+            idCidade: DataTypes.INTEGER,
             kilometragem: DataTypes.INTEGER,
             tipo: DataTypes.STRING,
         }, {
